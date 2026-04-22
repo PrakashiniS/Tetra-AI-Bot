@@ -10,4 +10,3 @@ This package is configured to use MySQL only. It is prefilled to use `root` with
 4. Run: `python app.py`
 5. Open http://127.0.0.1:5000 and register/login.
 
-> Security note: This configuration (root with no password) is only for local testing. Do not use in production.
