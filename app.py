@@ -13,7 +13,7 @@ import google.generativeai as genai
 # -----------------------------
 # Recommended: set GEMINI_API_KEY in environment for production.
 # For quick local testing you can hardcode a default below (NOT recommended in real apps).
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyCptrrNAG3YZ9NRiEbCo3dJYL0DnSSsqCE")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "your_API_Key")
 # Configure the google generative client
 genai.configure(api_key=GEMINI_API_KEY)
 
@@ -23,7 +23,7 @@ MYSQL_URL = os.getenv("MYSQL_URL", "mysql+pymysql://root@127.0.0.1:3306/chatdb")
 # Flask app
 app = Flask(__name__, static_folder="static", template_folder="templates")
 # Replace this secret key for production and keep it secret (env var recommended)
-app.secret_key = os.getenv("FLASK_SECRET_KEY", "6b2ba3b17dba0c01e37473c7777895e5ecf92007f8107801ce6a73aed1aec93a")
+app.secret_key = os.getenv("FLASK_SECRET_KEY", "your_API_Key")
 
 # Database engine
 engine = create_engine(
