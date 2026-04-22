@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+<!-- Alertify CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+
+<!-- Alertify JS -->
+<script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+{% block title %}Chat{% endblock %}
+{% block body %}
+
+<div class="page">
+  <aside class="sidebar">
+    <div class="user-chip">
+      <div class="avatar">{{ user.username[0]|upper }}</div>
+      <div>
+        <div class="name">{{ user.username }}</div>
+        <div class="since">since {{ user.created_at.strftime('%Y-%m-%d') if user.created_at else '' }}</div>
+      </div>
+    </div>
+    <a class="btn-link" href="{{ url_for('logout') }}">Logout</a>
+  </aside>
+  <main class="chat-area">
+    <div class="chat-card uiverse-glass">
+      <div id="chat-container" class="chat-container"></div>
+      <div class="composer">
+        <input id="user-input" type="text" placeholder="Ask about Java or Python programming..." />
+        <div class="composer-actions">
+          <button id="send-btn" class="btn-gradient">Send</button>
+          <button id="pause-btn" class="btn-ghost" title="Pause/Resume typing">⏸</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}
+<script>
+  const loggedInUser = "{{ user.username }}";
+</script>
